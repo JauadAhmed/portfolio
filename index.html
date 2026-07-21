@@ -6,14 +6,14 @@
 <title>Jauad Ahmed Sadik | Portfolio</title>
 <style>
   :root {
-    --bg: #0d0f14;
-    --bg-alt: #12151c;
-    --card: #171b23;
-    --border: #232833;
-    --text: #e8eaed;
-    --text-dim: #9aa1ad;
-    --accent: #5b8cff;
-    --accent-soft: rgba(91,140,255,0.12);
+    --bg: #ffffff;
+    --bg-alt: #f7f7f5;
+    --card: #ffffff;
+    --border: #e6e5e1;
+    --text: #1a1a18;
+    --text-dim: #6b6a65;
+    --accent: #b45309;
+    --accent-soft: #fdf1e3;
     --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,136 +21,163 @@
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
     scroll-behavior: smooth;
   }
   a { color: inherit; text-decoration: none; }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  ::selection { background: var(--accent-soft); }
 
   header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(13,15,20,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.92);
     border-bottom: 1px solid var(--border);
   }
   nav {
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 24px; max-width: 1000px; margin: 0 auto;
   }
-  .logo { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 14px; color: var(--text-dim); transition: color 0.2s; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: 0.3px; }
+  .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+  .nav-links a { font-size: 14px; color: var(--text-dim); }
   .nav-links a:hover { color: var(--accent); }
-  .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+  .cv-btn {
+    background: var(--text); color: #fff; padding: 8px 16px;
+    border-radius: var(--radius); font-size: 13px; font-weight: 600;
+  }
+  .cv-btn:hover { background: var(--accent); }
+  .menu-toggle { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--text); }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 4px; padding: 12px 24px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a { padding: 10px 0; font-size: 15px; color: var(--text); border-bottom: 1px solid var(--border); }
+  .mobile-menu.open { display: flex; }
 
   .hero {
-    padding: 100px 0 80px;
+    padding: 90px 0 70px;
     text-align: center;
   }
-  .hero .tag {
-    display: inline-block;
-    background: var(--accent-soft);
-    color: var(--accent);
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 24px;
+  .avatar {
+    width: 92px; height: 92px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; font-weight: 700;
+    margin: 0 auto 24px;
+    border: 1px solid var(--border);
   }
-  .hero h1 { font-size: 44px; font-weight: 700; margin-bottom: 12px; }
-  .hero h2 { font-size: 20px; color: var(--text-dim); font-weight: 400; margin-bottom: 20px; }
-  .hero p.summary {
-    max-width: 640px; margin: 0 auto 32px;
-    color: var(--text-dim); font-size: 16px;
-  }
-  .hero .contact-row {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;
-    font-size: 14px; color: var(--text-dim); margin-bottom: 32px;
-  }
-  .hero .contact-row span { display: flex; align-items: center; gap: 6px; }
-  .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero .eyebrow { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .hero h1 { font-size: 40px; font-weight: 700; margin-bottom: 10px; }
+  .hero h2 { font-size: 18px; color: var(--text-dim); font-weight: 400; margin-bottom: 22px; }
+  .hero .location { font-size: 14px; color: var(--text-dim); margin-bottom: 32px; }
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
   .btn {
-    padding: 12px 26px; border-radius: var(--radius); font-size: 14px; font-weight: 600;
-    border: 1px solid var(--border); transition: all 0.2s;
+    padding: 11px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 600;
+    border: 1px solid var(--border);
   }
-  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .btn-primary:hover { background: #4a78e0; }
+  .btn-primary { background: var(--text); color: #fff; border-color: var(--text); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
   .btn-secondary { background: transparent; color: var(--text); }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-  section { padding: 70px 0; }
-  section.alt { background: var(--bg-alt); }
-  .section-title {
-    font-size: 26px; font-weight: 700; margin-bottom: 8px;
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    max-width: 480px; margin: 0 auto; gap: 12px;
   }
-  .section-sub { color: var(--text-dim); font-size: 15px; margin-bottom: 40px; }
+  .stat-card {
+    background: var(--bg-alt); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 8px;
+  }
+  .stat-card .num { font-size: 24px; font-weight: 700; color: var(--accent); }
+  .stat-card .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+  section { padding: 64px 0; }
+  section.alt { background: var(--bg-alt); }
+  .eyebrow-label { font-size: 12.5px; color: var(--accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .section-sub { color: var(--text-dim); font-size: 15px; margin-bottom: 36px; max-width: 620px; }
+
+  .filter-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .filter-btn {
+    background: var(--card); border: 1px solid var(--border); color: var(--text-dim);
+    padding: 7px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
 
   .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
   }
   .skill-card {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 20px;
+    border-radius: var(--radius); padding: 18px 10px; text-align: center;
   }
-  .skill-card h4 { font-size: 14px; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .skill-card p { font-size: 14px; color: var(--text-dim); }
+  .skill-card img { width: 32px; height: 32px; margin-bottom: 10px; }
+  .skill-card span { display: block; font-size: 13.5px; font-weight: 600; }
+  .skill-card { display: none; }
+  .skill-card.show { display: block; }
 
+  .projects-grid { display: grid; gap: 22px; }
   .project {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 28px; margin-bottom: 24px;
+    border-radius: var(--radius); padding: 26px; display: none;
   }
-  .project-head {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    flex-wrap: wrap; gap: 10px; margin-bottom: 12px;
+  .project.show { display: block; }
+  .project-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .project h3 { font-size: 18.5px; font-weight: 700; }
+  .project .cat-tag { font-size: 11.5px; color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 999px; font-weight: 700; }
+  .project p.desc { font-size: 14.5px; color: var(--text-dim); margin-bottom: 12px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag-pill { font-size: 12px; background: var(--bg-alt); border: 1px solid var(--border); padding: 3px 10px; border-radius: 6px; color: var(--text-dim); }
+  .project-links { display: flex; gap: 16px; }
+  .project-links a { font-size: 13.5px; font-weight: 600; color: var(--accent); }
+  .project-links a:hover { text-decoration: underline; }
+
+  .tabs { display: flex; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
+  .tab-btn {
+    background: var(--card); border: 1px solid var(--border); color: var(--text-dim);
+    padding: 9px 18px; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer;
   }
-  .project h3 { font-size: 19px; font-weight: 700; }
-  .project .stack { font-size: 12px; color: var(--accent); font-weight: 600; }
-  .project ul { list-style: none; margin-top: 10px; }
-  .project li {
-    font-size: 14.5px; color: var(--text-dim); margin-bottom: 8px; padding-left: 18px; position: relative;
-  }
-  .project li::before {
-    content: "→"; position: absolute; left: 0; color: var(--accent);
-  }
+  .tab-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .tab-panel { display: none; }
+  .tab-panel.show { display: block; }
 
   .timeline-item {
     border-left: 2px solid var(--border);
-    padding: 0 0 32px 28px; position: relative;
+    padding: 0 0 30px 26px; position: relative;
   }
   .timeline-item::before {
-    content: ""; position: absolute; left: -7px; top: 4px;
-    width: 12px; height: 12px; border-radius: 50%;
+    content: ""; position: absolute; left: -6px; top: 4px;
+    width: 10px; height: 10px; border-radius: 50%;
     background: var(--accent);
   }
   .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item .period { font-size: 12.5px; color: var(--accent); font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 4px; }
   .timeline-item .role { font-size: 17px; font-weight: 700; }
-  .timeline-item .org { font-size: 14px; color: var(--accent); margin-bottom: 4px; }
-  .timeline-item .period { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .timeline-item .org { font-size: 14px; color: var(--text-dim); margin-bottom: 8px; }
   .timeline-item ul { list-style: none; }
-  .timeline-item li {
-    font-size: 14.5px; color: var(--text-dim); margin-bottom: 6px; padding-left: 18px; position: relative;
-  }
-  .timeline-item li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .timeline-item li { font-size: 14px; color: var(--text-dim); margin-bottom: 6px; padding-left: 16px; position: relative; }
+  .timeline-item li::before { content: "-"; position: absolute; left: 0; color: var(--accent); }
 
-  .edu-card {
+  .contact-box {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 20px 24px; margin-bottom: 14px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    border-radius: 14px; padding: 40px; text-align: center;
   }
-  .edu-card h4 { font-size: 15.5px; font-weight: 700; }
-  .edu-card span { font-size: 13.5px; color: var(--text-dim); }
+  .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 
   footer {
-    text-align: center; padding: 50px 24px; border-top: 1px solid var(--border);
-    color: var(--text-dim); font-size: 14px;
+    text-align: center; padding: 40px 24px; border-top: 1px solid var(--border);
+    color: var(--text-dim); font-size: 13.5px;
   }
   footer a { color: var(--accent); }
 
   @media (max-width: 700px) {
     .nav-links { display: none; }
-    .hero h1 { font-size: 32px; }
-    .hero h2 { font-size: 17px; }
+    .menu-toggle { display: block; }
+    .hero h1 { font-size: 30px; }
+    .hero h2 { font-size: 16px; }
+    .stats { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -158,207 +185,349 @@
 
 <header>
   <nav>
-    <div class="logo">Jauad Sadik</div>
+    <div class="logo">JS</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#journey">Journey</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a class="cv-btn" href="https://drive.google.com/file/d/1NqLExqzIVpUs0IqgDuJWuBHrGxCFHZ-H/view?usp=sharing" target="_blank">Download CV</a></li>
     </ul>
+    <button class="menu-toggle" id="menuToggle">☰</button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1NqLExqzIVpUs0IqgDuJWuBHrGxCFHZ-H/view?usp=sharing" target="_blank">Download CV</a>
+  </div>
 </header>
 
 <section class="hero container">
-  <div class="tag">Open to opportunities</div>
+  <div class="avatar">JS</div>
+  <div class="eyebrow">Hello, I'm</div>
   <h1>Jauad Ahmed Sadik</h1>
-  <h2>Computer Science &amp; Engineering Graduate, BRAC University</h2>
-  <p class="summary">
-    CSE graduate with hands-on experience spanning machine learning, embedded systems, robotics,
-    and full-stack web development. President of the BRAC University Computer Club, with a track
-    record of leading teams and shipping real products.
-  </p>
-  <div class="contact-row">
-    <span>📍 Dhaka, Bangladesh</span>
-    <span>📞 +880 1732 644 303</span>
-    <span>✉️ jauadahmedsadik@gmail.com</span>
-  </div>
+  <h2>Computer Science &amp; Engineering Graduate · BRAC University</h2>
+  <div class="location">Dhaka, Bangladesh</div>
   <div class="btn-row">
-    <a href="mailto:jauadahmedsadik@gmail.com" class="btn btn-primary">Get in touch</a>
-    <a href="https://github.com/jauad-ahmed-sadik" target="_blank" class="btn btn-secondary">GitHub</a>
-    <a href="https://linkedin.com/in/jauad-ahmed-sadik" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    <a href="#projects" class="btn btn-primary">View my work</a>
+    <a href="https://drive.google.com/file/d/1NqLExqzIVpUs0IqgDuJWuBHrGxCFHZ-H/view?usp=sharing" target="_blank" class="btn btn-secondary">Download CV</a>
+  </div>
+  <div class="stats">
+    <div class="stat-card"><div class="num">2+</div><div class="label">Years coding</div></div>
+    <div class="stat-card"><div class="num">6+</div><div class="label">Projects built</div></div>
+    <div class="stat-card"><div class="num">50+</div><div class="label">People led (BUCC)</div></div>
   </div>
 </section>
 
 <section id="about" class="alt">
   <div class="container">
-    <div class="section-title">About</div>
-    <p class="section-sub" style="max-width:680px;">
-      I'm a CSE graduate from BRAC University with a passion for turning technology into practical,
-      real-world solutions — from disentangled generative models to fire-fighting robots to
-      production-grade web platforms. I'm currently deepening my skills in advanced web development
-      and image processing, while continuing to lead the university's Computer Club.
+    <div class="eyebrow-label">About</div>
+    <div class="section-title">Building real solutions with code</div>
+    <p class="section-sub">
+      I'm a CSE graduate from BRAC University with hands-on experience across machine learning,
+      embedded systems, robotics, and full-stack web development. I care about shipping things that
+      actually work — from disentangled generative models to fire-detecting robots to production-grade
+      web platforms with real users.
+    </p>
+    <p class="section-sub">
+      Beyond code, I lead the BRAC University Computer Club (BUCC) as President, where I run
+      events, mentor members, and manage a 50-person executive team. I'm currently deepening my
+      skills in advanced web development and image processing.
     </p>
   </div>
 </section>
 
 <section id="skills">
   <div class="container">
-    <div class="section-title">Technical skills</div>
-    <div class="section-sub">Languages, frameworks, and tools I work with</div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Languages</h4>
-        <p>Python, JavaScript, C, C++, x86 Assembly (EMU8086)</p>
-      </div>
-      <div class="skill-card">
-        <h4>Web &amp; UI</h4>
-        <p>Next.js (React), Tailwind CSS</p>
-      </div>
-      <div class="skill-card">
-        <h4>Database</h4>
-        <p>MySQL, MongoDB</p>
-      </div>
-      <div class="skill-card">
-        <h4>Concepts</h4>
-        <p>OOP, Data Structures &amp; Algorithms, REST APIs, Compiler Design</p>
-      </div>
-      <div class="skill-card">
-        <h4>QA / Testing</h4>
-        <p>SDLC &amp; STLC, Manual Testing, Test Case Design, Bug Reporting</p>
-      </div>
-      <div class="skill-card">
-        <h4>Tools</h4>
-        <p>Git, GitHub, Arduino, VS Code</p>
-      </div>
+    <div class="eyebrow-label">Skills</div>
+    <div class="section-title">Skills &amp; technologies</div>
+    <div class="section-sub">Languages, frameworks, and tools I use day to day.</div>
+    <div class="filter-row" id="skillFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="lang">Languages</button>
+      <button class="filter-btn" data-filter="web">Web / UI</button>
+      <button class="filter-btn" data-filter="db">Database</button>
+      <button class="filter-btn" data-filter="tools">Tools</button>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+      <div class="skill-card show" data-cat="lang"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+      <div class="skill-card show" data-cat="lang"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+      <div class="skill-card show" data-cat="lang"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><span>C</span></div>
+      <div class="skill-card show" data-cat="lang"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><span>C++</span></div>
+      <div class="skill-card show" data-cat="web"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="Next.js"><span>Next.js</span></div>
+      <div class="skill-card show" data-cat="web"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind CSS</span></div>
+      <div class="skill-card show" data-cat="db"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+      <div class="skill-card show" data-cat="db"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><span>MongoDB</span></div>
+      <div class="skill-card show" data-cat="tools"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+      <div class="skill-card show" data-cat="tools"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+      <div class="skill-card show" data-cat="tools"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino"><span>Arduino</span></div>
+      <div class="skill-card show" data-cat="tools"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"><span>VS Code</span></div>
     </div>
   </div>
 </section>
 
 <section id="projects" class="alt">
   <div class="container">
-    <div class="section-title">Projects</div>
-    <div class="section-sub">A selection of things I've built</div>
-
-    <div class="project">
-      <div class="project-head">
-        <h3>Nextern — Full-stack career &amp; internship platform</h3>
-        <div class="stack">Next.js 15 · MongoDB · NextAuth.js · Pusher · Agora.io</div>
-      </div>
-      <ul>
-        <li>Co-developed a full-stack platform connecting students, employers, and university advisors for internship matching, built with Next.js 15 (App Router), MongoDB Atlas, and NextAuth.js v5, as a 3-member university course project.</li>
-        <li>Engineered a Verified Trust &amp; Achievement Badge System — an event-driven engine awarding badges that feed into the platform's AI recommendation ranking — plus a real-time in-platform messaging system on Pusher.</li>
-        <li>Designed a Verified Review &amp; Reputation Intelligence System and an Alumni Mentorship Network with hire-verified two-way reviews and Agora.io-powered mentor video sessions.</li>
-      </ul>
+    <div class="eyebrow-label">Projects</div>
+    <div class="section-title">Featured projects</div>
+    <div class="section-sub">A selection of things I've built, from web platforms to embedded robotics.</div>
+    <div class="filter-row" id="projectFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="ml">AI / ML</button>
+      <button class="filter-btn" data-filter="embedded">Robotics / Embedded</button>
     </div>
+    <div class="projects-grid" id="projectsGrid">
 
-    <div class="project">
-      <div class="project-head">
-        <h3>ClubSync — Club management platform</h3>
-        <div class="stack">Next.js · MySQL · REST API</div>
+      <div class="project show" data-cat="web">
+        <div class="project-head">
+          <h3>Nextern — Career &amp; internship platform</h3>
+          <span class="cat-tag">Web Dev</span>
+        </div>
+        <p class="desc">Full-stack platform connecting students, employers, and university advisors for internship matching, with a badge/reputation engine and real-time messaging. Built as a 3-member university course project.</p>
+        <div class="tags">
+          <span class="tag-pill">Next.js 15</span><span class="tag-pill">MongoDB</span>
+          <span class="tag-pill">NextAuth.js</span><span class="tag-pill">Pusher</span><span class="tag-pill">Agora.io</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/akonBRO/nextern" target="_blank">Source code ↗</a>
+        </div>
       </div>
-      <ul>
-        <li>Built a full-stack platform supporting event registration, budget workflows, and OCA approval pipelines for 20+ university clubs.</li>
-        <li>Designed RESTful API endpoints with scoped authentication and role-based access control.</li>
-      </ul>
-    </div>
 
-    <div class="project">
-      <div class="project-head">
-        <h3>Beta-VAE — Unsupervised neural network</h3>
-        <div class="stack">Python · PyTorch</div>
+      <div class="project show" data-cat="web">
+        <div class="project-head">
+          <h3>ClubSync — Club management platform</h3>
+          <span class="cat-tag">Web Dev</span>
+        </div>
+        <p class="desc">Full-stack platform supporting event registration, budget workflows, and OCA approval pipelines for 20+ university clubs, with a RESTful API and role-based access control.</p>
+        <div class="tags">
+          <span class="tag-pill">Next.js</span><span class="tag-pill">MySQL</span><span class="tag-pill">REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/akonBRO/ClubSync" target="_blank">Source code ↗</a>
+        </div>
       </div>
-      <ul>
-        <li>Implemented a β-Variational Autoencoder achieving disentangled latent-space representations for generative data synthesis.</li>
-        <li>Evaluated model quality using reconstruction loss and KL-divergence metrics across 3 dataset configurations.</li>
-      </ul>
-    </div>
 
-    <div class="project">
-      <div class="project-head">
-        <h3>Autonomous fire-extinguishing robot</h3>
-        <div class="stack">Arduino C++ · Embedded systems</div>
+      <div class="project show" data-cat="ml">
+        <div class="project-head">
+          <h3>Beta-VAE — Unsupervised neural network</h3>
+          <span class="cat-tag">AI / ML</span>
+        </div>
+        <p class="desc">A β-Variational Autoencoder achieving disentangled latent-space representations for generative data synthesis, evaluated across 3 dataset configurations using reconstruction loss and KL-divergence.</p>
+        <div class="tags">
+          <span class="tag-pill">Python</span><span class="tag-pill">PyTorch</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jauad-ahmed-sadik" target="_blank">GitHub profile ↗</a>
+        </div>
       </div>
-      <ul>
-        <li>Engineered a sensor-driven robot capable of detecting and autonomously suppressing fire sources within a 1.5 m radius.</li>
-        <li>Integrated flame-sensor arrays, motor driver circuits, and a servo-controlled suppression mechanism.</li>
-      </ul>
-    </div>
 
-    <div class="project">
-      <div class="project-head">
-        <h3>Quizzarie — Multiplayer quiz engine</h3>
-        <div class="stack">x86 Assembly · EMU8086</div>
+      <div class="project show" data-cat="embedded">
+        <div class="project-head">
+          <h3>Autonomous fire-extinguishing robot</h3>
+          <span class="cat-tag">Robotics / Embedded</span>
+        </div>
+        <p class="desc">Sensor-driven robot that detects and autonomously suppresses fire sources within a 1.5 m radius, using flame-sensor arrays, motor driver circuits, and a servo-controlled suppression mechanism.</p>
+        <div class="tags">
+          <span class="tag-pill">Arduino C++</span><span class="tag-pill">Embedded systems</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jauad-ahmed-sadik" target="_blank">GitHub profile ↗</a>
+        </div>
       </div>
-      <ul>
-        <li>Developed a two-player turn-based quiz game in 8086 Assembly with interrupt-driven I/O and score-tracking logic.</li>
-      </ul>
+
+      <div class="project show" data-cat="embedded">
+        <div class="project-head">
+          <h3>Quizzarie — Multiplayer quiz engine</h3>
+          <span class="cat-tag">Robotics / Embedded</span>
+        </div>
+        <p class="desc">A two-player turn-based quiz game written in 8086 Assembly, with interrupt-driven I/O and score-tracking logic.</p>
+        <div class="tags">
+          <span class="tag-pill">x86 Assembly</span><span class="tag-pill">EMU8086</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jauad-ahmed-sadik" target="_blank">GitHub profile ↗</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="journey">
   <div class="container">
-    <div class="section-title">Leadership &amp; experience</div>
-
-    <div class="timeline-item">
-      <div class="role">President</div>
-      <div class="org">BRAC University Computer Club (BUCC)</div>
-      <div class="period">2025 – Present</div>
-      <ul>
-        <li>Directed 20+ technology events, workshops, and hackathons, increasing annual member participation by 40%.</li>
-        <li>Managed a team of 50+ executives across seven departments, overseeing budgeting, logistics, and strategic planning.</li>
-        <li>Established mentorship initiatives linking junior members with industry professionals.</li>
-      </ul>
+    <div class="eyebrow-label">Journey</div>
+    <div class="section-title">Education, leadership &amp; certificates</div>
+    <div class="tabs" id="journeyTabs">
+      <button class="tab-btn active" data-tab="education">Education</button>
+      <button class="tab-btn" data-tab="leadership">Leadership</button>
+      <button class="tab-btn" data-tab="certs">Certificates</button>
     </div>
 
-    <div class="timeline-item">
-      <div class="role">Executive, Human Resources</div>
-      <div class="org">Robotics Club of BRAC University (ROBU)</div>
-      <div class="period">2022 – 2025</div>
-      <ul>
-        <li>Coordinated recruitment cycles, onboarding 25+ new members per semester.</li>
-        <li>Streamlined inter-departmental communication, reducing event planning lead time by approximately 20%.</li>
-      </ul>
+    <div class="tab-panel show" id="education">
+      <div class="timeline-item">
+        <div class="period">May 2022 – May 2026</div>
+        <div class="role">B.Sc. in Computer Science &amp; Engineering</div>
+        <div class="org">BRAC University</div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2018 – 2020</div>
+        <div class="role">Higher Secondary Certificate (Science)</div>
+        <div class="org">Sherpur Government College</div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2016 – 2018</div>
+        <div class="role">Secondary School Certificate (Science)</div>
+        <div class="org">Jangaldi High School</div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="leadership">
+      <div class="timeline-item">
+        <div class="period">2025 – Present</div>
+        <div class="role">President</div>
+        <div class="org">BRAC University Computer Club (BUCC)</div>
+        <ul>
+          <li>Directed 20+ technology events, workshops, and hackathons, increasing annual member participation by 40%.</li>
+          <li>Managed a team of 50+ executives across seven departments, overseeing budgeting, logistics, and strategic planning.</li>
+          <li>Established mentorship initiatives linking junior members with industry professionals.</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2022 – 2025</div>
+        <div class="role">Executive, Human Resources</div>
+        <div class="org">Robotics Club of BRAC University (ROBU)</div>
+        <ul>
+          <li>Coordinated recruitment cycles, onboarding 25+ new members per semester.</li>
+          <li>Streamlined inter-departmental communication, reducing event planning lead time by approximately 20%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="certs">
+      <div class="skills-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Cleaning Data in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Feature Engineering for Machine Learning in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Supervised Learning with scikit-learn</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Intermediate Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Understanding Data Science</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Introduction to Deep Learning in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Reinforcement Learning with Gymnasium in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Deep Reinforcement Learning in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Reinforcement Learning in Python</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp · 18 hrs</span>
+          <span style="font-size:14.5px; margin-top:4px;">Reinforcement Learning in Python (Extended)</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">Certificate</span>
+          <span style="font-size:14.5px; margin-top:4px;">UX Design Decision-making with AI</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">DataCamp</span>
+          <span style="font-size:14.5px; margin-top:4px;">Introduction to SQL</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">Award</span>
+          <span style="font-size:14.5px; margin-top:4px;">Duke of Edinburgh's International Award (Bronze Standard)</span>
+        </div>
+        <div class="skill-card show" style="text-align:left; padding:16px 18px;">
+          <span style="font-size:12px; color:var(--accent); font-weight:700;">Participation</span>
+          <span style="font-size:14.5px; margin-top:4px;">International Online Olympiad by GRE and TOEFL</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="education" class="alt">
+<section id="contact" class="alt">
   <div class="container">
-    <div class="section-title">Education</div>
-    <div class="edu-card">
-      <h4>B.Sc. in Computer Science &amp; Engineering — BRAC University</h4>
-      <span>May 2022 – May 2026</span>
-    </div>
-    <div class="edu-card">
-      <h4>Higher Secondary Certificate (Science) — Sherpur Government College</h4>
-      <span>2018 – 2020</span>
-    </div>
-    <div class="edu-card">
-      <h4>Secondary School Certificate (Science) — Jangaldi High School</h4>
-      <span>2016 – 2018</span>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container" style="text-align:center;">
+    <div class="eyebrow-label">Contact</div>
     <div class="section-title">Let's connect</div>
-    <p class="section-sub">Open to internship, graduate, and full-time opportunities in software engineering.</p>
-    <div class="btn-row">
-      <a href="mailto:jauadahmedsadik@gmail.com" class="btn btn-primary">jauadahmedsadik@gmail.com</a>
-      <a href="tel:+8801732644303" class="btn btn-secondary">+880 1732 644 303</a>
+    <div class="section-sub">Open to internship, graduate, and full-time software engineering roles.</div>
+    <div class="contact-box">
+      <p style="font-size:15px; color:var(--text-dim);">Reach out directly — I reply within a day or two.</p>
+      <div class="contact-links">
+        <a href="mailto:jauadahmedsadik@gmail.com" class="btn btn-primary">Email me ↗</a>
+        <a href="tel:+8801732644303" class="btn btn-secondary">+880 1732 644 303</a>
+        <a href="https://github.com/jauad-ahmed-sadik" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://linkedin.com/in/jauad-ahmed-sadik" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 Jauad Ahmed Sadik · Built with HTML, CSS &amp; a bit of stubbornness ·
+  © 2026 Jauad Ahmed Sadik ·
   <a href="https://github.com/jauad-ahmed-sadik" target="_blank">GitHub</a> ·
   <a href="https://linkedin.com/in/jauad-ahmed-sadik" target="_blank">LinkedIn</a>
 </footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  document.getElementById('skillFilters').addEventListener('click', e => {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('#skillFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const filter = e.target.dataset.filter;
+    document.querySelectorAll('#skillsGrid .skill-card').forEach(card => {
+      card.classList.toggle('show', filter === 'all' || card.dataset.cat === filter);
+    });
+  });
+
+  document.getElementById('projectFilters').addEventListener('click', e => {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('#projectFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const filter = e.target.dataset.filter;
+    document.querySelectorAll('#projectsGrid .project').forEach(card => {
+      card.classList.toggle('show', filter === 'all' || card.dataset.cat === filter);
+    });
+  });
+
+  document.getElementById('journeyTabs').addEventListener('click', e => {
+    if (!e.target.classList.contains('tab-btn')) return;
+    document.querySelectorAll('#journeyTabs .tab-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('show'));
+    document.getElementById(e.target.dataset.tab).classList.add('show');
+  });
+</script>
 
 </body>
 </html>
